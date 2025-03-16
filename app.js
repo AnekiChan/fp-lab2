@@ -19,7 +19,7 @@ const toggleTask = (state, id) => ({
     )
 });
 
-const deleteTask = (state, id) => ({
+const findTask = (state, id) => ({
     ...state,
     tasks: state.tasks.filter(task => task.id !== id)
 });
@@ -47,7 +47,7 @@ const dispatch = (action) => {
             state = toggleTask(state, action.payload);
             break;
         case 'DELETE_TASK':
-            state = deleteTask(state, action.payload);
+            state = findTask(state, action.payload);
             break;
         case 'SET_FILTER':
             state = setFilter(state, action.payload);
